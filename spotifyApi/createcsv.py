@@ -21,9 +21,19 @@ def writeCSV(data):
     filename = 'data.csv'
 
     # Writing data to the CSV file
-    with open(filename, 'w', newline='') as csvfile:
-        writer = csv.writer(csvfile)
-        writer.writerows(data)
+    if not os.path.exists(filename):
+        with open(filename, 'w', newline='') as csvfile:
+            writer = csv.writer(csvfile)
+            writer.writerows(data)
+    else:
+        data.pop(0)
+        csv_file = 'data.csv'
+
+        # Append data to the CSV file
+        with open(csv_file, 'a', newline='') as file:
+            writer = csv.writer(file)
+            writer.writerows(data)
+
 
 def main():
 
@@ -39,12 +49,12 @@ def main():
         if download == "y":
             for i in range(len(data)):
                 if i == 0:
-                    continue
+                    pass
                 else:
                     download_wav(data[i][2], os.path.join(wavPath, str(i) + ".wav"))
             print("Files downloaded successfully.")
         else: 
-            continue
+            pass
 
         arr_status = input("would you like to convert wave to arrays now(y/n): ")
         if arr_status == "y":
@@ -57,8 +67,9 @@ def main():
                     data[i].append(arr)
                     data[i].append(sr)
         else: 
-            continue
+            pass
         
+
         writeCSV(data)
 
         status = input("Do you want to add Another Query(y/n): ")
@@ -70,7 +81,7 @@ def main():
                 if os.path.isfile(file_path):
                     # Delete the file
                     os.remove(file_path)
-            continue
+            pass
         else:
             done = True
 
