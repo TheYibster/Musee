@@ -15,7 +15,7 @@ wavPath = os.path.join(os.getcwd(), "wavData")
 
 def wavToArr(wav_file_path):
     y,sr = librosa.load(wav_file_path)
-    return list(y), int(sr)
+    return y, sr
 
 def writeCSV(data):
     filename = 'data.csv'
