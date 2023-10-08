@@ -1,4 +1,3 @@
-from spFunctions import download_wav, search
 import numpy as np
 import pandas as pd
 import spotipy
@@ -7,6 +6,8 @@ import csv
 import os
 import librosa
 import random
+
+from spFunctions import download_wav, search
 
 # Set up the authentication flow
 sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id='456d00237a8241de99b97d8b8f4f3254',
