@@ -14,7 +14,7 @@ sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id='456d00237a
 wavPath = os.path.join(os.getcwd(), "wavData")
 
 def wavToArr(wav_file_path):
-    y,sr = librosa.load(wav_file_path)
+    y, sr = librosa.load(wav_file_path)
     return y, sr
 
 def writeCSV(data):
@@ -87,5 +87,4 @@ def main():
 
     print("csv successfully downloaded to path.")
 
-main()
 
