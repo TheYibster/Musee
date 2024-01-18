@@ -16,11 +16,11 @@ sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id='456d00237a
 wavPath = os.path.join(os.getcwd(), "wavData")
 
 
-with open('word.txt') as f:
+with open('./Musee/spotifyApi/word.txt') as f:
     words = f.read().splitlines()
 
 randomwords = []
-for i in random.sample(range(10000), 1000):
+for i in random.sample(range(10000), 10000):
     randomwords.append(words[i])
 
 randomData = []
