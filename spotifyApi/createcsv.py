@@ -87,4 +87,4 @@ def main():
 
     print("csv successfully downloaded to path.")
 
-
+main()
