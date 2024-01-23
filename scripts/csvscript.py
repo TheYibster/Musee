@@ -25,9 +25,12 @@ for i in random.sample(range(10000), 10000):
 
 randomData = []
 for word in randomwords:
-    randomData.append(pd.DataFrame(search(word, 3)[1:], columns=("name", "popularity", "url")))
+    randomData.append(pd.DataFrame(search(word, 1)[1:], columns=("name", "popularity", "url")))
 
 print(randomData)
 
 my_df = pd.concat(randomData)
 my_df.to_csv("url.csv", index=False)
+
+
+
