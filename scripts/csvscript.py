@@ -16,7 +16,7 @@ sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id='456d00237a
 wavPath = os.path.join(os.getcwd(), "wavData")
 
 
-with open('./Musee/spotifyApi/word.txt') as f:
+with open('./spotifyApi/word.txt') as f:
     words = f.read().splitlines()
 
 randomwords = []
@@ -25,7 +25,7 @@ for i in random.sample(range(10000), 10000):
 
 randomData = []
 for word in randomwords:
-    randomData.append(pd.DataFrame(search(word, 1)[1:], columns=("name", "popularity", "url")))
+    randomData.append(pd.DataFrame(search(word, 3)[1:], columns=("name", "popularity", "url")))
 
 print(randomData)
 
